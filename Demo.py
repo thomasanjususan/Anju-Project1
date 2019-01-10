@@ -6,11 +6,11 @@ con=cx_Oracle.connect("Saint/Saint@UST")
 	cur=con.Cursor()
 def call_create():
 	
-	cur.Execute(""" Create table reminder (msg varchar2(20),date date ,time time)""")
-    num1 = (n1.get())
-    num2 = (n2.get())
-	num3=(n3.get())
-	cur.Execute(' insert into reminder values(:1,:2,:3)',(num1,num2,num3))
+	cur.Execute(""" Create table reminderApp (msg varchar2(20),date date ,time time)""")
+        value1 = (n1.get())
+        value2 = (n2.get())
+	value3=(n3.get())
+	cur.Execute(' insert into reminderApp values(:1,:2,:3)',(value1,value2,value3))
     var = StringVar()
 	a = Message( root, textvariable=var, relief=RAISED )
 	var.set("table created  and inserted successfully")
@@ -19,18 +19,18 @@ def call_create():
 	
 def call_view():
 	
-	cur.Execute(""" select  * from reminder""")
+	cur.Execute(""" select  * from reminderApp""")
 	print(cur.fetchall())
     return
  
  def call_update():
 	
-	cur.Execute(" update reminder set msg=:1,date=:2,time=:3 where date=:2",(num1,num2,num3))
+	cur.Execute(" update remindeAppr set msg=:1,date=:2,time=:3 where date=:2",(value1,value2,value3))
 	print(cur.fetchall())
     return
 
 root.geometry('500x500')
-root.title('Calculator') 
+root.title('Reminder') 
  
 n1 = StringVar()
 n2 = StringVar()
